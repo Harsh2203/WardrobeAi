@@ -72,3 +72,59 @@ Example: @RestController = handles HTTP responses in JSON.
 Example: Postgres = stores relational data, supports indexing, queries, and can scale.
 
 Example: @Valid = ensures only correct data is saved; prevents backend errors.
+
+Day 5 — Update API with Validations
+
+Date: (add today’s date)
+
+Goal:
+
+Implement updateUser API with proper input validation.
+
+Understand Controller → Service → Repository flow.
+
+What We Are Using:
+
+Spring Boot (@RestController, @Autowired)
+
+Spring Data JPA (UserRepository)
+
+Bean Validation (@NotBlank, @Email, @Size)
+
+@Valid in Controller
+
+@PathVariable to get id from URL
+
+Logic / Flow:
+
+Controller receives PUT request /user/update/{id}
+
+Input fields validated automatically via @Valid and annotations
+
+Service layer checks if user exists in DB:
+
+If not → return "User not found"
+
+If exists:
+
+Update email and password
+
+Optional: check for duplicate email
+
+Save updated user in DB
+
+Return success message → "User updated successfully"
+
+Extra Challenge:
+
+Prevent duplicate email updates by checking DB
+
+Understand why we use @PathVariable
+
+Next Steps:
+
+Implement the validations in User.java
+
+Test API using Postman with valid and invalid inputs
+
+Observe automatic error messages for invalid inputs
